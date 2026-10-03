@@ -107,6 +107,38 @@ To verify policy transferability to physical hardware under manufacturing variat
 
 ![Sim-to-Real Robustness](results/sim_to_real_robustness.png)
 
+### 5. Multi-Domain Autonomy & Aerospace Systems
+
+#### A. Reactive 2D Planar LiDAR Obstacle Avoidance
+To validate navigation through cluttered environments, the quadrotor was interfaced with an 8-beam radial LiDAR rangefinder coupled with an artificial potential field. 
+* **Obstacle Radius:** 0.45 m
+* **Closest En-Route Approach:** **0.7080 m** (Safety Margin: **+0.2580 m**)
+* **Collision Count:** **0 (100% collision-free bypass)**
+
+![Obstacle Avoidance](results/obstacle_avoidance_lidar.png)
+
+#### B. Multi-UAV Swarm Formation Flight
+A decentralized multi-agent formulation where 3 independent quadrotors execute synchronous triangle-formation trajectories along dynamic moving centroids with decentralized mutual-separation collision avoidance.
+
+![Swarm Formation](results/multi_uav_swarm_formation.png)
+
+#### C. Actuator Slew Rate & Power Draw Telemetry
+Quantifies high-frequency motor chattering and electrical power draw ($\propto \sum \omega_i^3$) across steady-state hover:
+* **Average Steady-State Power Draw:** 461.80 W
+* **Action Slew Rate (RMS Chatter):** 40.10 s⁻¹
+* **Cumulative Flight Energy:** 2.91 kJ
+
+![Energy Profiling](results/energy_efficiency_telemetry.png)
+
+#### D. ROS 2 / MAVROS Middleware Integration
+Contains an export-ready ROS 2 node (`benchmarks/ros2_quadrotor_node.py`) subscribing to `/mavros/local_position/odom` (`nav_msgs/Odometry`) and publishing directly to `/mavros/actuator_control`, bridging PyTorch continuous inference to PX4 SITL and Gazebo.
+
+### 🎮 Interactive Flight Telemetry UI (Gradio)
+To test crosswind turbulence, payload variation, and motor failure injection in real time:
+
+```bash
+python gradio_app.py
+
 ## 🚀 Quickstart & Reproduction
 
 ### Prerequisites
