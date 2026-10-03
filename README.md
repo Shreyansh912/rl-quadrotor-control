@@ -79,6 +79,18 @@ Policy training progression across 250,000 environment steps with normalized adv
 </p>
 
 
+
+### 3. Dynamic 3D Trajectory Tracking (Lemniscate / Figure-8)
+To validate aggressive maneuvering beyond stationary hover, the policy was conditioned on a 15-dimensional state vector incorporating position error, velocity error feedforward, and target waypoint coordinates.
+
+| Flight Regimes | Target Trajectory | Tracking RMSE | Peak Deviation |
+| :--- | :---: | :---: | :---: |
+| **Dynamic Agility Mode** | 3D Lemniscate ($\omega = 0.8\text{ rad/s}$) | **0.1694 m** | **0.2595 m** |
+| **Stationary Hover (Windy)** | Setpoint $(0, 0, 1.5)\text{ m}$ | **0.1869 m** | **0.2810 m** |
+
+![Dynamic Trajectory Tracking](results/ppo_figure8_tracking.png)
+
+
 ## 🚀 Quickstart & Reproduction
 
 ### Prerequisites
