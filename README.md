@@ -91,6 +91,22 @@ To validate aggressive maneuvering beyond stationary hover, the policy was condi
 ![Dynamic Trajectory Tracking](results/ppo_figure8_tracking.png)
 
 
+### 4. Sim-to-Real Physical Domain Randomization (Monte Carlo Stress Test)
+To verify policy transferability to physical hardware under manufacturing variations and payload drift, the trained agent was subjected to 20 randomized Monte Carlo flight trials with extreme off-nominal parameter perturbations:
+* **Airframe Mass Perturbation:** $m \in [0.70, 0.95]\text{ kg}$ ($\pm 15\%$)
+* **Actuator Time Constant (Motor Lag):** $\tau \in [20, 50]\text{ ms}$
+* **Inertia Matrix Scaling:** $I_{xx}, I_{yy}, I_{zz} \in \pm 20\%$
+* **Individual Rotor Degradation / Asymmetry:** $k_{f, i} \in [0.90, 1.10]$
+
+| Robustness Evaluation Metric | Evaluated Result |
+| :--- | :---: |
+| **Monte Carlo Trials Conducted** | 20 runs across dynamic parameter shifts |
+| **Mean Steady-State Hover Error** | **0.1641 m** |
+| **Worst-Case Peak Deviation** | **0.2074 m** |
+| **Flight Envelope Survival / Stability Rate** | **100.0% (Zero Crashes / Loss of Control)** |
+
+![Sim-to-Real Robustness](results/sim_to_real_robustness.png)
+
 ## 🚀 Quickstart & Reproduction
 
 ### Prerequisites
