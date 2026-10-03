@@ -72,6 +72,13 @@ Policy training progression across 250,000 environment steps with normalized adv
 
 ---
 
+# 🚁 Deep Reinforcement Learning 6-DOF Quadrotor Flight Controller (Sim-to-Real)
+
+<p align="center">
+  <img src="results/flight_demo.gif" alt="PPO 6-DOF Quadrotor Flight Trajectory" width="750"/>
+</p>
+
+
 ## 🚀 Quickstart & Reproduction
 
 ### Prerequisites
